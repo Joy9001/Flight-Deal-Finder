@@ -32,21 +32,6 @@ for flight in flights:
     flightsearch = FlightSearch()
     flightsearch.get_flight_price(flight)
 
-# flightsearch = FlightSearch()
-# flightsearch.get_flight_price(flights[-1])
-
-#
-# for flight in flights:
-#     print(flight.price)
-#     print(flight.departure_airport_code)
-#     print(flight.departure_city)
-#     print(flight.destination_airport_code)
-#     print(flight.destination_city)
-#     print(flight.from_date)
-#     print(flight.to_date)
-#     print(flight.stay_period)
-#     print("\n")
-
 for y in range(len(sheet_data)):
     if sheet_data[y]["Lowest Price"] > flights[y].price:
         sheet_data[y]["Lowest Price"] = flights[y].price
@@ -56,6 +41,7 @@ for y in range(len(sheet_data)):
             msg = f"{msg} FLight has 1 stop over, via {flights[y].via_city}."
 
         notification_manager = NotificationManager()
+        # SEND SMS TO YOUR NUMBER
         # notification_manager.send_sms(message=msg)
 
         users = data_manager.get_user_emails()
