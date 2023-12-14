@@ -22,7 +22,7 @@ class NotificationManager:
         print(message.status)
 
     def send_email(self, name, mail, message):
-        with SMTP("smtp.gmail.com") as connection:
+        with SMTP("smtp.gmail.com", 587) as connection:
             connection.starttls()
             connection.login(user=MY_GMAIL, password=password_gmail)
             connection.sendmail(from_addr=MY_GMAIL, to_addrs=f"{mail}",
